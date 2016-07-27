@@ -14,8 +14,7 @@ public class ReadProductItemFromJsonTest {
 	@Test
 	public void test()
 	{
-		ReadUtilFile readUtilFile = new ReadUtilFile();
-	    Map<String, Product> retMap = readUtilFile.readProductItem();
+	    Map<String, Product> retMap = ReadUtilFile.readProductItem();
 		for(String barcode: retMap.keySet())
 	    {
 	    	Product product = retMap.get(barcode);

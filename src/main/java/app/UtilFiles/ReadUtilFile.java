@@ -97,6 +97,15 @@ public class ReadUtilFile {
 		return retArray;
 	}
 	
+	public static ArrayList<String> readShoppingCartItem()
+	{
+		String str = ReadUtilFile.readFile(".\\Data\\shoppingCart.json");
+		//买二赠一
+		Gson gson = new Gson();
+		ArrayList<String> retArray = gson.fromJson(str,  new TypeToken<ArrayList<String>>(){}.getType()); 
+		return retArray;
+	}
+	
 	public static Map<String, DiscountConvert> readDiscountIDConvert()
 	{
 		Map<String, String> discountIDMap = ReadUtilFile.readDiscountItem();
@@ -117,7 +126,7 @@ public class ReadUtilFile {
 	
 	public static Map<String, DiscountConvert> MessageConvertCountNumber() {
 		ReadUtilFile readUtilFile = new ReadUtilFile();
-		Map<String, String> discountIDMap = readUtilFile.readDiscountItem();
+		Map<String, String> discountIDMap = ReadUtilFile.readDiscountItem();
 		Map<String, DiscountConvert> discountConvertMap = readUtilFile.readDiscountConvertItem();
 		Map<String, DiscountConvert> discountProduct = new LinkedHashMap<String, DiscountConvert>();
 		
@@ -133,8 +142,10 @@ public class ReadUtilFile {
 		return discountProduct;
 	}
 	
-	public static LinkedHashMap<String, Integer> shoppingCartItem(List<String> shoppingList)
-	{        
+	public static LinkedHashMap<String, Integer> shoppingCartItem()
+	{   
+		List<String> shoppingList = ReadUtilFile.readShoppingCartItem();
+		
         for(int i = 0; i < shoppingList.size(); i++)
         {
         	if(shoppingList.get(i).contains("-"))

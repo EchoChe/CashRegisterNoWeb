@@ -16,8 +16,8 @@ public class ReadByeTwoGetOneFreeIDTest {
 
 	@Test
 	public void test() {
-		ReadUtilFile readUtilFile = new ReadUtilFile();
-		ArrayList<String> actual = readUtilFile.readBuyTwoGetOneFreeID();
+		
+		ArrayList<String> actual = ReadUtilFile.readBuyTwoGetOneFreeID();
 
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("ITEM000001");
