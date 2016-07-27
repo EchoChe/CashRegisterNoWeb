@@ -8,11 +8,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -103,6 +101,24 @@ public class ReadUtilFile {
 	{
 		Map<String, String> discountIDMap = ReadUtilFile.readDiscountItem();
 		Map<String, DiscountConvert> discountConvertMap = ReadUtilFile.readDiscountConvertItem();
+		Map<String, DiscountConvert> discountProduct = new LinkedHashMap<String, DiscountConvert>();
+		
+		for(String discountMessageInretMap : discountIDMap.keySet())
+			for(String discountMessageInretMap2 : discountConvertMap.keySet())
+		   	{
+		   		String barcode = (String)discountIDMap.get(discountMessageInretMap);
+		   		if(discountMessageInretMap.equals(discountMessageInretMap2) )
+		   		{
+			   		discountProduct.put(barcode, discountConvertMap.get(discountMessageInretMap2));
+		   		}
+		    }
+		return discountProduct;
+	}
+	
+	public static Map<String, DiscountConvert> MessageConvertCountNumber() {
+		ReadUtilFile readUtilFile = new ReadUtilFile();
+		Map<String, String> discountIDMap = readUtilFile.readDiscountItem();
+		Map<String, DiscountConvert> discountConvertMap = readUtilFile.readDiscountConvertItem();
 		Map<String, DiscountConvert> discountProduct = new LinkedHashMap<String, DiscountConvert>();
 		
 		for(String discountMessageInretMap : discountIDMap.keySet())

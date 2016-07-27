@@ -64,6 +64,6 @@ public class ReceiptPrinterTest {
 		productsWithNumbers.put("ITEM000005",5);
 		productsWithNumbers.put("ITEM000003",2);
 		
-		assertEquals("总计：19.00(元)\n节省：5.00(元)",receiptPrinter.getReceiptSum(productsWithNumbers));
+		assertEquals("总计：39.00(元)\n 节省：5.00(元)",receiptPrinter.getReceiptSum(productsWithNumbers));
 	}
 }

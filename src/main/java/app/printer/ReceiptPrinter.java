@@ -33,22 +33,18 @@ public class ReceiptPrinter {
 	public String printOneItemInItemsSectionWhentDiscount(Product product, int number) {
 		String discountType = "";
 		//反向寻找折扣类型
-		for(String s:readUtilFile.discountMap.keySet())
-			if(readUtilFile.discountMap.get(s).equals(product.getBarcode()))
-				discountType = s;
-		double discountNumber= readUtilFile.discountConvertMap.get(discountType).getDiscount();
 		
-		double itemPrice = product.getPrice() * number * discountNumber;
-		double itemDiscount = product.getPrice() * number * (1-discountNumber);
-		totalPrice += itemPrice;
-		totalDiscount += itemDiscount;
-		
+		Map<String, DiscountConvert> discountProduct = ReadUtilFile.MessageConvertCountNumber();
+		String barcodeTmp = product.getBarcode();
+		double discount = discountProduct.get(barcodeTmp).getDiscount();
+		double itemPrice = product.getPrice() * number * discount;
+				
 		return String.format("名称：%s，数量：%d%s，单价：%1.2f(元)，小计：%1.2f(元)，节省：%1.2f(元)",
 				product.getName(),
 				number,product.getUnit(),
 				product.getPrice(),
 				itemPrice,
-				product.getPrice() * number * (1-discountNumber));
+				product.getPrice() * number * (1-discount));
 	}
 
 	public String printOneItemInItemsSectionWhenBuyTwoGetOneFree(Product product, int number) {

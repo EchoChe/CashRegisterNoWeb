@@ -14,20 +14,7 @@ public class ReadDiscountID {
 
 	@Test
 	public void test() {
-		ReadUtilFile readUtilFile = new ReadUtilFile();
-		Map<String, String> discountIDMap = readUtilFile.readDiscountItem();
-		Map<String, DiscountConvert> discountConvertMap = readUtilFile.readDiscountConvertItem();
-		Map<String, DiscountConvert> discountProduct = new LinkedHashMap<String, DiscountConvert>();
-		
-		for(String discountMessageInretMap : discountIDMap.keySet())
-			for(String discountMessageInretMap2 : discountConvertMap.keySet())
-		   	{
-		   		String barcode = (String)discountIDMap.get(discountMessageInretMap);
-		   		if(discountMessageInretMap.equals(discountMessageInretMap2) )
-		   		{
-			   		discountProduct.put(barcode, discountConvertMap.get(discountMessageInretMap2));
-		   		}
-		    }
+		Map<String, DiscountConvert> discountProduct = ReadUtilFile.MessageConvertCountNumber();
 		    
 		 Iterator< String> it = discountProduct.keySet().iterator();
 		 while(it.hasNext())
@@ -46,4 +33,6 @@ public class ReadDiscountID {
 		   	}
 		 }
 	}
+
+	
 }
