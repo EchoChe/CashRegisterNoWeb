@@ -2,8 +2,8 @@ package app;
 
 import java.util.LinkedHashMap;
 
-import app.UtilFiles.ReadUtilFile;
 import app.model.Product;
+import app.model.ShoppingCart;
 import app.printer.ReceiptPrinter;
 
 public class CashRegister {
@@ -36,7 +36,7 @@ public class CashRegister {
 		String receiptString = "";
 		receiptString += receiptPrinter.getReceiptHead();
 		//receiptString += receiptPrinter.printMultipleItemsInItemSection(null);
-		receiptString += receiptPrinter.getReceiptSum(ReadUtilFile.productsWithNumbers);
+		receiptString += receiptPrinter.getReceiptSum(ShoppingCart.shoppingCartItem());
 		return receiptString;
 	}
 

@@ -1,13 +1,11 @@
 package app.utilsFiles;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import app.UtilFiles.ReadUtilFile;
+import app.model.ShoppingCart;
 
 public class ReadShoppingCartItemFromJsonFile {
 	
@@ -15,7 +13,7 @@ public class ReadShoppingCartItemFromJsonFile {
 	@Test
 	public void test()
 	{		
-		LinkedHashMap<String, Integer> map1= ReadUtilFile.shoppingCartItem();
+		LinkedHashMap<String, Integer> map1= ShoppingCart.shoppingCartItem();
         
 		LinkedHashMap<String, Integer> map2= new LinkedHashMap<String, Integer>();
 		map2.put("ITEM000001", 5);

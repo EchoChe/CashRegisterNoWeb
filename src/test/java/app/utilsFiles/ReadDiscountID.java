@@ -7,14 +7,14 @@ import java.util.Map;
 import org.junit.Test;
 
 import app.UtilFiles.ReadUtilFile;
-import app.UtilFiles.DiscountConvert;
+import app.model.DiscountConvert;
 import junit.framework.Assert;
 
 public class ReadDiscountID {
 
 	@Test
 	public void test() {
-		Map<String, DiscountConvert> discountProduct = ReadUtilFile.MessageConvertCountNumber();
+		Map<String, DiscountConvert> discountProduct = DiscountConvert.discountBarcodeWithMessage();
 		    
 		 Iterator< String> it = discountProduct.keySet().iterator();
 		 while(it.hasNext())

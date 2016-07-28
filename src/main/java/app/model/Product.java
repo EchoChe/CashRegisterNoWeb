@@ -1,5 +1,13 @@
 package app.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import app.UtilFiles.ReadUtilFile;
+
 public class Product {
 	private String barcode = "";
 	private double price = 0.0;
@@ -7,6 +15,7 @@ public class Product {
 	private String unit = "";
 	private String category = "";
 	private String subCategory = "";
+
 	
 	public Product(String barcode, String name, double price, String unit, String catagory, String subCatagory) {
 		this.barcode = barcode;
@@ -66,6 +75,16 @@ public class Product {
 		return true;
 	}
 	
-	
+	public static Map<String, Product> readProductItem()
+	{
+		String str = ReadUtilFile.readFile(".\\Data\\product.json");
+//		String str = ReadUtilFile.readFile("classpath:Data/product.json");
+		Map<String, Product> productMap = new HashMap<String, Product>();
+
+		//json string product
+		Gson gson = new Gson();
+	    productMap = gson.fromJson(str, new TypeToken<Map<String, Product>>(){}.getType());
+	    return productMap;
+	}
 
 }

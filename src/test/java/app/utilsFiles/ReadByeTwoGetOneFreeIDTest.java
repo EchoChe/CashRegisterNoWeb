@@ -1,23 +1,18 @@
 package app.utilsFiles;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import app.UtilFiles.ReadUtilFile;
+import app.model.ByeThreeGetOneFree;
 
 public class ReadByeTwoGetOneFreeIDTest {
 
 	@Test
 	public void test() {
 		
-		ArrayList<String> actual = ReadUtilFile.readBuyTwoGetOneFreeID();
+		ArrayList<String> actual = ByeThreeGetOneFree.readBuyTwoGetOneFreeID();
 
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("ITEM000001");

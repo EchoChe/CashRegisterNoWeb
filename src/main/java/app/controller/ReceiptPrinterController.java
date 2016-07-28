@@ -36,38 +36,38 @@ public class ReceiptPrinterController {
 		return "homepage";
 	}
 
-	@RequestMapping(value="/readJson", method = RequestMethod.POST)
-	@ResponseBody
-	public String readJson(@RequestBody String str) {
-		System.out.println("request:"+str);
-		ReceiptPrinter receiptPrinter = new ReceiptPrinter();
-		String receipt ="<p align='center'>"+ receiptPrinter.getReceiptHead()+"</p>" +"@\n";
-		ReadUtilFile.clear();
-		receiptPrinter.clear();
-		
-		ReadUtilFile.readProductItem();
-		ReadUtilFile.readDiscountItem();
-		ReadUtilFile.readDiscountConvertItem();
-		
-		List<String> shoppingList = new ArrayList<String>();
-		for(String s:str.split("&"))
-			shoppingList.add(s.split("=")[1]);
-		ReadUtilFile.shoppingCartItem(shoppingList);
-		//System.out.println("productsWithNumbers"+ReadUtilFile.productsWithNumbers);
-		//System.out.println("receipt:"+receipt);
-
-		receipt += receiptPrinter.threeChoseOne(ReadUtilFile.productsWithNumbers)+"@\n";
-		
-		System.out.println("receiptPrinter.buyTwoFreeOneList:"+receiptPrinter.buyTwoFreeOneList);
-		if(!receiptPrinter.buyTwoFreeOneList.isEmpty())
-			receipt += receiptPrinter.printOneItemInItemsSectionWheBuyTwoGetOneFreeList()+"@\n";
-		
-		if(receiptPrinter.totalDiscount==0.0)
-			receipt += receiptPrinter.getReceiptSum(ReadUtilFile.productsWithNumbers)+"\n";
-
-		System.out.println("receipt:"+receipt);
-		
-		return receipt;
-	}
+//	@RequestMapping(value="/readJson", method = RequestMethod.POST)
+//	@ResponseBody
+//	public String readJson(@RequestBody String str) {
+//		System.out.println("request:"+str);
+//		ReceiptPrinter receiptPrinter = new ReceiptPrinter();
+//		String receipt ="<p align='center'>"+ receiptPrinter.getReceiptHead()+"</p>" +"@\n";
+//		ReadUtilFile.clear();
+//		receiptPrinter.clear();
+//		
+//		ReadUtilFile.readProductItem();
+//		ReadUtilFile.readDiscountItem();
+//		ReadUtilFile.readDiscountConvertItem();
+//		
+//		List<String> shoppingList = new ArrayList<String>();
+//		for(String s:str.split("&"))
+//			shoppingList.add(s.split("=")[1]);
+//		ReadUtilFile.shoppingCartItem(shoppingList);
+//		//System.out.println("productsWithNumbers"+ReadUtilFile.productsWithNumbers);
+//		//System.out.println("receipt:"+receipt);
+//
+//		receipt += receiptPrinter.threeChoseOne(ReadUtilFile.productsWithNumbers)+"@\n";
+//		
+//		System.out.println("receiptPrinter.buyTwoFreeOneList:"+receiptPrinter.buyTwoFreeOneList);
+//		if(!receiptPrinter.buyTwoFreeOneList.isEmpty())
+//			receipt += receiptPrinter.printOneItemInItemsSectionWheBuyTwoGetOneFreeList()+"@\n";
+//		
+//		if(receiptPrinter.totalDiscount==0.0)
+//			receipt += receiptPrinter.getReceiptSum(ReadUtilFile.productsWithNumbers)+"\n";
+//
+//		System.out.println("receipt:"+receipt);
+//		
+//		return receipt;
+//	}
 	
 }

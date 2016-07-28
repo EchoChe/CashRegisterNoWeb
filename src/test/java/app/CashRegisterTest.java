@@ -1,18 +1,15 @@
 package app;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import java.util.LinkedHashMap;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import app.UtilFiles.ReadUtilFile;
 import app.model.Product;
+import app.model.ShoppingCart;
 import app.printer.ReceiptPrinter;
 
 public class CashRegisterTest {
@@ -67,7 +64,7 @@ public class CashRegisterTest {
 				
 		verify(receiptPrinter,times(1)).getReceiptHead();
 		//verify(receiptPrinter,times(1)).printMultipleItemsInItemSection(any(LinkedHashMap.class));
-		verify(receiptPrinter,times(1)).getReceiptSum(ReadUtilFile.productsWithNumbers);
+		verify(receiptPrinter,times(1)).getReceiptSum(ShoppingCart.shoppingCartItem());
 	}
 	
 }

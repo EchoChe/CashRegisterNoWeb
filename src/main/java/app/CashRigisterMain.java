@@ -2,36 +2,36 @@ package app;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
-import app.UtilFiles.DiscountConvert;
-import app.UtilFiles.ReadUtilFile;
+import app.model.ByeThreeGetOneFree;
+import app.model.DiscountConvert;
 import app.model.Product;
+import app.model.ShoppingCart;
+import app.printer.ReceiptPrinter;
 
 public class CashRigisterMain {
 	public static void main(String[] args) {
 		
-		CashRegister cashRegister;
-		Product product1 = null;
+		CashRegister cashRegister = new CashRegister();
+		ReceiptPrinter receiptPrinter = new ReceiptPrinter();
 		
-		ArrayList<String> actual = ReadUtilFile.readBuyTwoGetOneFreeID();
-		Map<String, DiscountConvert> discountProduct = ReadUtilFile.MessageConvertCountNumber();
-	    Map<String, Product> retMap = ReadUtilFile.readProductItem();
-	    LinkedHashMap<String, Integer> map1= new LinkedHashMap<String, Integer>();
-        List<String> list3 = new ArrayList<>();
-        list3.add("ITEM000001");
-        list3.add("ITEM000001");
-        list3.add("ITEM000001");
-        list3.add("ITEM000001");
-        list3.add("ITEM000001");
-        list3.add("ITEM000003-2");
-        list3.add("ITEM000003");
-        list3.add("ITEM000005");
-        list3.add("ITEM000005");
-        list3.add("ITEM000005");
-        map1 = ReadUtilFile.shoppingCartItem();
+		ArrayList<String> byeTwoGetOneFree = ByeThreeGetOneFree.readBuyTwoGetOneFreeID();
+		Map<String, DiscountConvert> discountProduct = DiscountConvert.discountBarcodeWithMessage();
+	    Map<String, Product> products = Product.readProductItem();
+	    LinkedHashMap<String, Integer> shoppingCart= ShoppingCart.shoppingCartItem();
 		
-		System.out.println("Hello");
+	    receiptPrinter.clear();
+	    String productsItem = receiptPrinter.getReceiptHead();
+	    String byeTwoGetOneFreeItem = receiptPrinter.getReceiptBuyTwoGetOneFreeHead();
+	    
+	    productsItem += receiptPrinter.threeChoseOne(shoppingCart);
+	    
+	    System.out.println(productsItem);
+	    if(!byeTwoGetOneFree.isEmpty())
+	    	System.out.println(receiptPrinter.printOneItemInItemsSectionWheBuyTwoGetOneFreeList());
+	 
+	    String str = cashRegister.printReceipt();
+	    System.out.println(str);
 	}
 }
