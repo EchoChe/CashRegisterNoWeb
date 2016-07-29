@@ -1,26 +1,24 @@
 package app.utilsFiles;
 
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.junit.Test;
 
-import app.UtilFiles.ReadUtilFile;
-import app.model.DiscountConvert;
+import app.model.Discount;
 import junit.framework.Assert;
 
 public class ReadDiscountID {
 
 	@Test
 	public void test() {
-		Map<String, DiscountConvert> discountProduct = DiscountConvert.discountBarcodeWithMessage();
-		    
+		 Map<String, Discount> discountProduct = Discount.discountBarcodeWithMessage();
 		 Iterator< String> it = discountProduct.keySet().iterator();
+		 
 		 while(it.hasNext())
 		 {
 		  	String key = it.next();
-		   	DiscountConvert dConvert = (DiscountConvert)discountProduct.get(key);
+		   	Discount dConvert = (Discount)discountProduct.get(key);
 		   	if(key == "ITEM000001")
 		   	{
 		   		Assert.assertEquals(0.95, dConvert.getDiscount());
@@ -33,6 +31,4 @@ public class ReadDiscountID {
 		   	}
 		 }
 	}
-
-	
 }

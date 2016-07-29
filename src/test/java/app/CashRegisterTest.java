@@ -63,7 +63,7 @@ public class CashRegisterTest {
 		cashRegister.printReceipt();
 				
 		verify(receiptPrinter,times(1)).getReceiptHead();
-		//verify(receiptPrinter,times(1)).printMultipleItemsInItemSection(any(LinkedHashMap.class));
+//		verify(receiptPrinter,times(1)).printMultipleItemsInItemSection(any(LinkedHashMap.class));
 		verify(receiptPrinter,times(1)).getReceiptSum(ShoppingCart.shoppingCartItem());
 	}
 	

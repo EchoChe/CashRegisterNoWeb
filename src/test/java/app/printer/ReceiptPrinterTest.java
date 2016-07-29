@@ -3,14 +3,11 @@ package app.printer;
 import static org.junit.Assert.assertEquals;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import app.UtilFiles.ReadUtilFile;
-import app.model.DiscountConvert;
 import app.model.Product;
 
 

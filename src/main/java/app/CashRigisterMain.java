@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import app.model.ByeThreeGetOneFree;
-import app.model.DiscountConvert;
+import app.model.Discount;
 import app.model.Product;
 import app.model.ShoppingCart;
 import app.printer.ReceiptPrinter;
@@ -17,7 +17,7 @@ public class CashRigisterMain {
 		ReceiptPrinter receiptPrinter = new ReceiptPrinter();
 		
 		ArrayList<String> byeTwoGetOneFree = ByeThreeGetOneFree.readBuyTwoGetOneFreeID();
-		Map<String, DiscountConvert> discountProduct = DiscountConvert.discountBarcodeWithMessage();
+		Map<String, Discount> discountProduct = Discount.discountBarcodeWithMessage();
 	    Map<String, Product> products = Product.readProductItem();
 	    LinkedHashMap<String, Integer> shoppingCart= ShoppingCart.shoppingCartItem();
 		

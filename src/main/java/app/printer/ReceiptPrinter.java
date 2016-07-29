@@ -6,7 +6,7 @@ import java.util.Map;
 
 import app.UtilFiles.ReadUtilFile;
 import app.model.ByeThreeGetOneFree;
-import app.model.DiscountConvert;
+import app.model.Discount;
 import app.model.Product;
 
 public class ReceiptPrinter {
@@ -32,10 +32,9 @@ public class ReceiptPrinter {
 	}
 
 	public String printOneItemInItemsSectionWhentDiscount(Product product, int number) {
-		String discountType = "";
-		//反向寻找折扣类型
 		
-		Map<String, DiscountConvert> discountProduct = DiscountConvert.discountBarcodeWithMessage();
+		//反向寻找折扣类型
+		Map<String, Discount> discountProduct = Discount.discountBarcodeWithMessage();
 		String barcodeTmp = product.getBarcode();
 		double discount = discountProduct.get(barcodeTmp).getDiscount();
 		double itemPrice = product.getPrice() * number * discount;
@@ -65,9 +64,10 @@ public class ReceiptPrinter {
 		}
 	}
 	
-	public String threeChoseOne(LinkedHashMap<String, Integer> productsWithNumbers) {
+	public String threeChoseOne(LinkedHashMap<String, Integer> productsWithNumbers) 
+	{
 		ArrayList<String> buyTwoGetOneFreeID = ByeThreeGetOneFree.readBuyTwoGetOneFreeID();
-		Map<String, DiscountConvert> discountID = DiscountConvert.discountBarcodeWithMessage();
+		Map<String, Discount> discountID = Discount.discountBarcodeWithMessage();
 		ReceiptPrinter receiptPrinter = new ReceiptPrinter();
 		LinkedHashMap<String, Integer> shoppingCart = productsWithNumbers;
 		
