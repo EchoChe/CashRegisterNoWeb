@@ -27,6 +27,10 @@ public class Discount extends Sale{
 	public static Map<String, String> discountMap = new HashMap<String, String>();
 	public static Map<String, Discount> discountConvertMap = new HashMap<String, Discount>();
 	
+	public Discount() {
+		
+	}
+	
 	public Discount( double discount, String discountMessage) {
 		this.discount = discount;
 		this.discountMessage = discountMessage;

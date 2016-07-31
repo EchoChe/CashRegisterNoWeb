@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="app.model.ShoppingCart" x="396" y="550">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="app.UtilFiles.ReadUtilFile"/>
+    </Class>
+    <Class name="app.printer.ReceiptPrinter" x="685" y="484">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="app.UtilFiles.ReadUtilFile"
+            endpointName="readUtilFile" kind="Simple"/>
+        <Communication destinationClassName="app.model.Discount"/>
+        <Communication destinationClassName="app.model.ByeThreeGetOneFree"/>
+        <Communication destinationClassName="app.model.Product"/>
+    </Class>
+    <Class name="app.CashRigisterMain" x="390" y="267">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="app.model.ShoppingCart"/>
+        <Communication destinationClassName="app.printer.ReceiptPrinter"/>
+        <Communication destinationClassName="app.CashRegister"/>
+        <Communication destinationClassName="app.model.Discount"/>
+        <Communication destinationClassName="app.model.ByeThreeGetOneFree"/>
+        <Communication destinationClassName="app.model.Product"/>
+    </Class>
+    <Class name="app.UtilFiles.ReadUtilFile" x="970" y="295">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="app.model.Sale" x="199" y="49">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="app.CashRegister" x="258" y="363">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="app.printer.ReceiptPrinter"
+            endpointName="receiptPrinter" kind="Simple"/>
+        <Communication destinationClassName="app.printer.ReceiptPrinter"/>
+        <Communication destinationClassName="app.model.Product"/>
+    </Class>
+    <Class name="app.model.Discount" x="56" y="160">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="app.model.Sale"/>
+        <Association destinationClassName="app.model.Discount"
+            endpointName="discountConvertMap" kind="Simple"/>
+        <Communication destinationClassName="app.UtilFiles.ReadUtilFile"/>
+    </Class>
+    <Class name="app.model.ByeThreeGetOneFree" x="256" y="188">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="app.model.Sale"/>
+        <Communication destinationClassName="app.UtilFiles.ReadUtilFile"/>
+    </Class>
+    <Class name="app.model.Product" x="548" y="205">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="app.UtilFiles.ReadUtilFile"/>
+    </Class>
+</ClassDiagram>

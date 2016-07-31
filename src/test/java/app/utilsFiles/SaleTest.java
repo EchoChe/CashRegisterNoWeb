@@ -15,15 +15,15 @@ public class SaleTest {
 	@Test
 	public <Sale> void test() {
 		Sale sale;
-		System.out.println("hello");
 		
-		switch(1)
+		switch(2)
 		{
 		case 1:
-			sale = (Sale) new ByeThreeGetOneFree();
+			sale = (Sale)new ByeThreeGetOneFree();
 			break;
 		case 2:
-			sale = (Sale)new Discount(0, null);
+			sale = (Sale)new Discount();
+			break;
 		default:
 			throw new IllegalAnnotationException("Incorrect Sale Code");
 		}
