@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ClassDiagram>
-    <Class name="app.model.ShoppingCart" x="396" y="550">
+    <Class name="app.model.ShoppingCart" x="440" y="381">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -10,7 +10,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Communication destinationClassName="app.UtilFiles.ReadUtilFile"/>
     </Class>
-    <Class name="app.printer.ReceiptPrinter" x="685" y="484">
+    <Class name="app.printer.ReceiptPrinter" x="61" y="28">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -20,11 +20,8 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Association destinationClassName="app.UtilFiles.ReadUtilFile"
             endpointName="readUtilFile" kind="Simple"/>
-        <Communication destinationClassName="app.model.Discount"/>
-        <Communication destinationClassName="app.model.ByeThreeGetOneFree"/>
-        <Communication destinationClassName="app.model.Product"/>
     </Class>
-    <Class name="app.CashRigisterMain" x="390" y="267">
+    <Class name="app.UtilFiles.ReadUtilFile" x="309" y="191">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -32,14 +29,18 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
-        <Communication destinationClassName="app.model.ShoppingCart"/>
-        <Communication destinationClassName="app.printer.ReceiptPrinter"/>
+    </Class>
+    <Class name="app.CashRigisterMain" x="1174" y="112">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
         <Communication destinationClassName="app.CashRegister"/>
-        <Communication destinationClassName="app.model.Discount"/>
-        <Communication destinationClassName="app.model.ByeThreeGetOneFree"/>
-        <Communication destinationClassName="app.model.Product"/>
     </Class>
-    <Class name="app.UtilFiles.ReadUtilFile" x="970" y="295">
+    <Class name="app.model.Sale" x="1095" y="184">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -48,16 +49,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="app.model.Sale" x="199" y="49">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-    </Class>
-    <Class name="app.CashRegister" x="258" y="363">
+    <Class name="app.CashRegister" x="742" y="58">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -67,10 +59,13 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Association destinationClassName="app.printer.ReceiptPrinter"
             endpointName="receiptPrinter" kind="Simple"/>
+        <Communication destinationClassName="app.model.ShoppingCart"/>
         <Communication destinationClassName="app.printer.ReceiptPrinter"/>
+        <Communication destinationClassName="app.model.Discount"/>
+        <Communication destinationClassName="app.model.ByeThreeGetOneFree"/>
         <Communication destinationClassName="app.model.Product"/>
     </Class>
-    <Class name="app.model.Discount" x="56" y="160">
+    <Class name="app.model.Discount" x="1144" y="272">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -83,7 +78,7 @@
             endpointName="discountConvertMap" kind="Simple"/>
         <Communication destinationClassName="app.UtilFiles.ReadUtilFile"/>
     </Class>
-    <Class name="app.model.ByeThreeGetOneFree" x="256" y="188">
+    <Class name="app.model.ByeThreeGetOneFree" x="953" y="296">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -94,7 +89,7 @@
         <Extension destinationClassName="app.model.Sale"/>
         <Communication destinationClassName="app.UtilFiles.ReadUtilFile"/>
     </Class>
-    <Class name="app.model.Product" x="548" y="205">
+    <Class name="app.model.Product" x="751" y="329">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>

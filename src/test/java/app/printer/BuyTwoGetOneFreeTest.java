@@ -25,7 +25,7 @@ public class BuyTwoGetOneFreeTest {
 	public void printOneItemInReceiptItemsSectionWhenByeTwoGetOneFree()
 	{
 		Assert.assertEquals("名称：可口可乐，数量：3瓶，单价：3.00(元)，小计：6.00(元)\n",
-				receiptPrinter.printOneItemInItemsSectionWhenBuyTwoGetOneFree(createProduct("ITEM000001","可口可乐", 3.00, "瓶"),3));
+				receiptPrinter.printOneItemInItemsSectionWhenBuyTwoGetOneFree(createProduct("ITEM000001","可口可乐", 3.00, "瓶"),3, 3.00 * 2));
 	}
 
 }

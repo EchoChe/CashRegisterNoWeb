@@ -27,7 +27,7 @@ public class DiscountTest {
 	public void printOneItemInReceiptItemsSectionWhenDiscount()
 	{
 		Assert.assertEquals("名称：苹果，数量：2斤，单价：5.00(元)，小计：9.00(元)，节省：1.00(元)\n",
-				receiptPrinter.printOneItemInItemsSectionWhentDiscount(createProduct("ITEM000003","苹果", 5.00, "斤"),2));
+				receiptPrinter.printOneItemInItemsSectionWhentDiscount(createProduct("ITEM000003","苹果", 5.00, "斤"),2, 9.00, 1.00));
 	}
 
 }
